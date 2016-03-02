@@ -1,11 +1,11 @@
 {
-  "name": "Page Redder",
-  "description": "Make the current page red",
+  "name": "Quick Translate",
+  "description": "Translate an English Paragraph to Vietnamese using Bing API",
   "version": "2.0",
   "permissions": [
     "activeTab",
-    "http://kids.evangelsenglish.com/*",
-    "https://kids.evangelsenglish.com/*"
+    "http://*/*",
+    "https://*/*"
   ],
   "browser_action": {
     "default_title": "Make this page red",

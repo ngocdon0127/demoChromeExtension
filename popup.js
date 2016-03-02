@@ -1,23 +1,25 @@
 document.addEventListener('DOMContentLoaded', function(){
 	console.log('start');
-	$('body').text('hoho');
+	ob('btnTranslate').addEventListener('click', translate);
+});
+
+function ob(x) {
+	return document.getElementById(x);
+}
+
+function translate() {
+	console.log($('#text').val());
+	ob('result').setAttribute('placeholder', 'Translating...');
 	$.ajax({
 		type: 'GET',
-		url: 'https://kids.evangelsenglish.com',
+		url: 'https://www.evangelsenglish.com/ajax/bing?text=' + $('#text').val(),
 		success: function(data){
-			$('body').text = data;
-			console.log('ngon r');
+			var value = $.parseXML(data);
+			$('#result').val($(value).find('string').text());
+			// console.log($(value).find('string').text());
 		},
 		error: function(){
-			console.log('error r');
+			$('#error').text('error');
 		}
 	})
-	// var xhr = new XMLHttpRequest();
- //    xhr.open("GET", "https://www.evangelsenglish.com/ajax/bing?text=Hello", true);
- //    xhr.onreadystatechange = function() {
-	//     if (xhr.readyState == 4) {
-	//     	$('body').text(xhr.responseText);
-	//     }
- //    }
- //    xhr.send();
-});
+}

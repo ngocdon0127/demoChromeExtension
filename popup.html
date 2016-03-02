@@ -1,31 +1,42 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Bing Translate</title>
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
+        padding-top: 20px;
+      }
+      textarea{
+        min-width: 400px;
+        min-height: 100px;
+      }
+      .containner{
+        margin-top: 50px;
       }
     </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
+    <link rel="stylesheet" href="bootstrap.min.css">
     <script src="popup.js"></script>
     <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
   </head>
   <body>
-    <div id="status">Test nào</div>
-    <img id="image-result" hidden>
+    <div class="container">
+      <label>Bing Translate</label>
+      <div class="form-group">
+      <textarea id="text" class="form-control" placeholder="Paste English Paragraph here and press the button"></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" id="btnTranslate">Dịch</button>
+      </div>
+        <div class="form-group">
+      </div>
+        <textarea id="result" class="form-control"></textarea>
+      <div class="form-group">
+        <p id="error"></p>
+      </div>
+    </div>
   </body>
 </html>
 
