@@ -8,7 +8,8 @@ function ob(x) {
 }
 
 function translate() {
-	console.log($('#text').val());
+	$('#result').text('');
+	$('#result').val('');
 	ob('result').setAttribute('placeholder', 'Translating...');
 	$.ajax({
 		type: 'GET',
