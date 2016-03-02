@@ -12,9 +12,5 @@
     "default_popup": "popup.html",
     "default_icon": "bing.png"
   },
-  "manifest_version": 2,
-  "content_scripts": [ {
-    "js": [ "jquery.min.js", "background.js" ],
-    "matches": [ "http://*/*", "https://*/*"]
-  }]
+  "manifest_version": 2
 }
