@@ -22,17 +22,8 @@ function translate() {
 		error: function(){
 			$('#error').text('error');
 		}
-	})
+	});
 }
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
-	if (request.to == 'popup'){
-		$('#text').text(request.data);
-		$('#text').val(request.data);
-		translate();
-		sendResponse({res: "hehe"});
-	}
-});
 
 var port = chrome.extension.connect({name: "Sample Communication"});
 port.postMessage("Hi BackGround");
