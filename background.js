@@ -13,7 +13,8 @@ chrome.contextMenus.create({
 
 function clickHandler (data, tab) {
 	chrome.windows.create({
-		url: "popup.html"
+		url: "popup.html",
+		type: "panel"
 	});
 	chrome.runtime.sendMessage({
 		to: "popup",
