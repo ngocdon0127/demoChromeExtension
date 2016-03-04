@@ -17,7 +17,6 @@ function translate() {
 		success: function(data){
 			var value = $.parseXML(data);
 			$('#result').val($(value).find('string').text());
-			// console.log($(value).find('string').text());
 		},
 		error: function(){
 			$('#error').text('error');
@@ -25,11 +24,15 @@ function translate() {
 	});
 }
 
-var port = chrome.extension.connect({name: "Sample Communication"});
-port.postMessage("Hi BackGround");
+var port = chrome.extension.connect({name: "Retrieve selection text if exist"});
 port.onMessage.addListener(function(msg) {
-	console.log("message recieved"+ msg);
-	$('#text').text(msg);
-	$('#text').val(msg);
-	translate();
+	if (msg.contextMenu == true){
+		$('#text').text(msg.data);
+		$('#text').val(msg.data);
+		translate();
+	}
+	// else{
+	// 	$('#text').text('');
+	// 	$('#text').val('');
+	// }
 });

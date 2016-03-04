@@ -15,9 +15,9 @@ function clickHandler (data, tab) {
 	}, function(response){
 		alert(response.res);
 	});
+	var b = true;
 	chrome.extension.onConnect.addListener(function(port) {
-		port.onMessage.addListener(function(msg) {
-			port.postMessage(data.selectionText);
-		});
+		port.postMessage({contextMenu: b, data: data.selectionText});
+		b = false;
 	});
 }
