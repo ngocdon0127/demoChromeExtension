@@ -1,16 +1,33 @@
 {
-  "name": "Quick Translate",
-  "description": "Translate an English Paragraph to Vietnamese using Bing API",
-  "version": "2.0",
-  "permissions": [
-    "activeTab",
-    "http://*/*",
-    "https://*/*"
-  ],
-  "browser_action": {
-    "default_title": "Quick Translate",
-    "default_popup": "popup.html",
-    "default_icon": "bing.png"
-  },
-  "manifest_version": 2
+	"name": "Quick Translate",
+	"description": "Translate an English Paragraph to Vietnamese using Bing API",
+	"version": "2.0",
+	"permissions": [
+		"activeTab",
+		"http://*/*",
+		"https://*/*",
+		"contextMenus"
+	],
+	"browser_action": {
+		"default_title": "Quick Translate",
+		"default_popup": "popup.html",
+		"default_icon": "bing.png"
+	},
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"css": ["bootstrap.min.css"],
+			"js": ["jquery.min.js", "bootstrap.min.js", "content-scripts.js"]
+		}
+	],
+	"icons":{
+		"16": "bing.png",
+		"32": "bing.png",
+		"64": "bing.png",
+		"128": "bing.png"
+	}
 }
