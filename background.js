@@ -1,3 +1,4 @@
+// add context menu
 chrome.contextMenus.create({
 	title: "Translate with Bing",
 	contexts: ["selection"],
@@ -9,13 +10,7 @@ function clickHandler (data, tab) {
 		url: "popup.html",
 		type: "panel"
 	});
-	chrome.runtime.sendMessage({
-		to: "popup",
-		data: data.selectionText
-	}, function(response){
-		alert(response.res);
-	});
-	var b = true;
+	var b = true; // detect if user use context menu
 	chrome.extension.onConnect.addListener(function(port) {
 		port.postMessage({contextMenu: b, data: data.selectionText});
 		b = false;
