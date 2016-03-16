@@ -28,8 +28,8 @@
 			var encrypted = CryptoJS.AES.encrypt(text, key);
 			ob('encrypted').value = encrypted.toString();
 			var hash = CryptoJS.MD5('Tuyển Tập Các Bài Hát Hay Nhất Của Khắc Việt');
-			// console.log(hash.toString(CryptoJS.enc.Base16)); // general MD5. Hex character
-			console.log(hash.toString(CryptoJS.enc.Base64));
+			console.log(hash.toString(CryptoJS.enc.Base16)); // general MD5. Hex character
+			// console.log(hash.toString(CryptoJS.enc.Base64));
 		}
 		function decrypt() {
 			var encrypted = ob('encrypted').value;
